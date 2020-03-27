@@ -1,0 +1,11 @@
+D:\VS Workspace\DarkGodServer\DarkGodServer\bin\Debug\DarkGodServer.exe.config
+D:\VS Workspace\DarkGodServer\DarkGodServer\bin\Debug\DarkGodServer.exe
+D:\VS Workspace\DarkGodServer\DarkGodServer\bin\Debug\DarkGodServer.pdb
+D:\VS Workspace\DarkGodServer\DarkGodServer\bin\Debug\MySql.Data.dll
+D:\VS Workspace\DarkGodServer\DarkGodServer\bin\Debug\PEProtocol.dll
+D:\VS Workspace\DarkGodServer\DarkGodServer\bin\Debug\PESocket.dll
+D:\VS Workspace\DarkGodServer\DarkGodServer\bin\Debug\PEProtocol.pdb
+D:\VS Workspace\DarkGodServer\DarkGodServer\obj\Debug\DarkGodServer.csprojAssemblyReference.cache
+D:\VS Workspace\DarkGodServer\DarkGodServer\obj\Debug\DarkGodServer.csproj.CopyComplete
+D:\VS Workspace\DarkGodServer\DarkGodServer\obj\Debug\DarkGodServer.exe
+D:\VS Workspace\DarkGodServer\DarkGodServer\obj\Debug\DarkGodServer.pdb

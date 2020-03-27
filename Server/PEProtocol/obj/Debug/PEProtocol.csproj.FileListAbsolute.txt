@@ -1,0 +1,8 @@
+D:\VS Workspace\DarkGodServer\PEProtocol\bin\Debug\PEProtocol.dll
+D:\VS Workspace\DarkGodServer\PEProtocol\bin\Debug\PEProtocol.pdb
+D:\VS Workspace\DarkGodServer\PEProtocol\bin\Debug\PESocket.dll
+D:\Unity Project Workspace\Dark God\Assets\Scripts\Net\PEProtocol.dll
+D:\Unity Project Workspace\Dark God\Assets\Scripts\Net\PEProtocol.pdb
+D:\VS Workspace\DarkGodServer\PEProtocol\obj\Debug\PEProtocol.csproj.CopyComplete
+D:\VS Workspace\DarkGodServer\PEProtocol\obj\Debug\PEProtocol.dll
+D:\VS Workspace\DarkGodServer\PEProtocol\obj\Debug\PEProtocol.pdb

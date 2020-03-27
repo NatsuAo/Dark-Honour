@@ -1,0 +1,80 @@
+﻿/****************************************************
+	文件：GuideSys
+	作者：NatsuAo
+	邮箱: yinhao7700@163.com
+	日期：2020/3/6 21:51:27   	
+	功能：引导业务系统
+*****************************************************/
+using PEProtocol;
+
+public class GuideSys
+{
+    private static GuideSys instance = null;
+    public static GuideSys Instance {
+        get {
+            if (instance == null)
+            {
+                instance = new GuideSys();
+            }
+            return instance;
+        }
+    }
+    private CacheSvc cacheSvc = null;
+    private CfgSvc cfgSvc = null;
+
+    public void Init()
+    {
+        cacheSvc = CacheSvc.Instance;
+        cfgSvc = CfgSvc.Instance;
+        PECommon.Log("GuideSys Init Done.");
+    }
+
+    public void ReqGuide(MsgPack pack)
+    {
+        ReqGuide data = pack.msg.reqGuide;
+        GameMsg msg = new GameMsg
+        {
+            cmd = (int)CMD.RspGuide
+        };
+
+        PlayerData pd = cacheSvc.GetPlayerDataBySession(pack.session);
+        GuideCfg gc = cfgSvc.GetGuideCfg(data.guideid);
+        PshTaskPrgs pshTaskPrgs = null;
+        // 更新引导ID
+        if (pd.guideid == data.guideid)
+        {
+            // 检查是否为智者点拨任务
+            if (pd.guideid == 1001)
+            {
+                pshTaskPrgs = TaskSys.Instance.GetTaskPrgs(pd, 1);
+            }
+
+            pd.guideid += 1;
+            // 更新玩家数据
+            pd.coin += gc.coin;
+            PECommon.CalcExp(pd, gc.exp);
+
+            if (!cacheSvc.UpdatePlayerData(pd.id, pd))
+            {
+                msg.err = (int)ErrorCode.UpdateDBError;
+            }
+            else
+            {
+                msg.rspGuide = new RspGuide
+                {
+                    guideid = pd.guideid,
+                    coin = pd.coin,
+                    lv = pd.lv,
+                    exp = pd.exp
+                };
+                msg.pshTaskPrgs = pshTaskPrgs;
+            }
+        }
+        else
+        {
+            msg.err = (int)ErrorCode.ServerDataError;
+        }
+        pack.session.SendMsg(msg);
+
+    }
+}
